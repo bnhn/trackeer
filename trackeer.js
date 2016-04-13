@@ -6,7 +6,6 @@ if (Meteor.isClient) {
   var MAP_ZOOM = 16;
   Meteor.startup(function() {
     var key =  Meteor.settings.public.googleMapAPIKey;
-    console.log("key",key);
     GoogleMaps.load({key:key});
     console.log("map is loading");
   });
