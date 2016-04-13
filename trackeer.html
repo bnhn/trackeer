@@ -1,0 +1,31 @@
+<head>
+  <title>Trackeer</title>
+</head>
+
+<body>
+	{{> navbar}}  
+   <div id="mapArea">{{>map}}</div>
+
+  
+</body>
+
+<template name = "navbar">
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+	    <a class="navbar-brand" href="/">SwiftLane</a>
+      <p class="navbar-text navbar-right">{{> loginButtons}}</p>
+    </div><!--end of container div-->
+  </nav>
+</template>
+
+<template name = "map">  
+  <div class="mapArea">
+    {{#unless geolocationError}}
+      {{> googleMap name="map" options=mapOptions}}
+    {{else}}
+    <div class="jumbotron">
+      Geolocation failed: {{geolocationError}}
+      </div>
+    {{/unless}}
+  </div>
+</template>  
